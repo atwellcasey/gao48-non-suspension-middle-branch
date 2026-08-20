@@ -49,7 +49,3 @@ under source-target polynomial equivalence.
 
 Gao Open Problem 4.8: the consequence remains conditional on interpreting Gao's undefined
 suspension terminology by the precise class defined in the paper.
-
-## License
-
-A license must be added after author approval.
