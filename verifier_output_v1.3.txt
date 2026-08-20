@@ -1,0 +1,14 @@
+PASS: exact witness verification
+W(G2) = t**2
+D2 = 1
+D1 = t**3*y**2*(4 + 4*I)
+D0 = 8*I*t**6*y**4
+det J(S) = gamma**2
+rank-3 minor = t**6*y**3*(-4 + 12*I)
+R = t**4*y**2*(1 + 2*I)
+lambda = 41/576 - 19*I/288
+normalized singular gradient:
+  dF/dz1 = -3*(2*z1**5 - z1**2*z3**3*z4**2 + 2*z1*z2**2*z3**2*z4**2 - z2**4*z3*z4**2)
+  dF/dz2 = -6*z2*z4**2*(z1*z3 - z2**2)**2
+  dF/dz3 = 3*z1*z4**2*(z1*z3 - z2**2)**2
+  dF/dz4 = 2*z4*(z1*z3 - z2**2)**3

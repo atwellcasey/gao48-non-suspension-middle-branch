@@ -1,0 +1,6 @@
+PDF: /mnt/data/Gao48_Publication_Packet_v1.3_2026-08-18/gao48_non_suspension_middle_branch_v1.3.pdf
+Pages: 10
+Encrypted: False
+Openable (PyMuPDF): True
+Likely scanned: False
+XFA present: False

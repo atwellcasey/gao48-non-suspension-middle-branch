@@ -1,0 +1,18 @@
+GAO48 MANUSCRIPT REVISION NOTES - v1.3
+Date: 2026-08-18
+
+Purpose:
+Publication-level exposition strengthening with no change to the main mathematical construction.
+
+Changes in v1.3:
+- Made the set-theoretic use of the critical locus explicit where det J(S)=gamma^2.
+- Added a direct justification that a coordinate polynomial is irreducible/prime.
+- Added the connected-algebraic-group-on-finite-set lemma to the non-cylinder proof.
+- Made preservation of the singular locus under ambient polynomial automorphisms explicit.
+- Expanded the padded/unpadded determinant relation used from Gao's four-dimensional formula.
+- Strengthened the scope statement distinguishing the formal suspension class from informal uses of the word.
+
+Status:
+- Main theorem: frozen in v1.3.
+- Exact verifier: unchanged in mathematical content and passing.
+- Gao Open Problem 4.8 consequence: remains conditional on terminology, exactly as stated in the manuscript.

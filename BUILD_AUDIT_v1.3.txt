@@ -1,0 +1,30 @@
+BUILD / RELEASE AUDIT - Gao48 v1.3
+Date/time: 2026-08-18 21:40 EDT
+
+LaTeX:
+- pdflatex pass 1: PASS
+- pdflatex pass 2: PASS
+- unresolved references/citations: NONE
+- overfull boxes: NONE
+- one harmless underfull hbox in the final scope/reference area
+
+Exact verifier:
+- verify_gao48_middle_branch_v1.3.py: PASS
+- witness D2,D1,D0: PASS
+- 4D0=D1^2: PASS
+- det J(S)=gamma^2: PASS
+- rank-three minor: PASS
+- elimination/lambda: PASS
+- normalized singular-gradient checks: PASS
+
+PDF:
+- 10 pages
+- openable: PASS
+- encrypted: NO
+- likely scanned: NO
+- rendered all 10 pages at 160 dpi: PASS
+- visual inspection of every rendered page: PASS; no clipping, overlap, broken glyphs, or malformed equations
+- render comparison against the prior manuscript stage performed; changes are exposition/layout only
+
+Release disposition:
+PUBLICATION READY for the stated theorem scope. Main theorem frozen. Gao 4.8 corollary remains conditional on terminology.

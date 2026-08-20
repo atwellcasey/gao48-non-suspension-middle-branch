@@ -1,0 +1,580 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\A}{\mathbb A}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Sing}{\operatorname{Sing}}
+\newcommand{\Crit}{\operatorname{Crit}}
+\newcommand{\CV}{\operatorname{CV}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\mult}{\operatorname{mult}}
+
+\title{A Non-Suspension Polynomial Solution in Gao's Five-Dimensional Middle Branch}
+\author{Casey Atwell}
+\date{18 August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For the mixed direction field
+\[
+\Delta=(1,w_1,w_1^2,w_2)^{\mathsf T},
+\]
+Gao's five-dimensional middle branch is governed by the polynomial identity
+$4cD_0=D_1^2$ and was conjectured to be rigid up to suspension of a four-dimensional sweep. We give explicit polynomial data satisfying the middle-branch equation and prove that the associated unpadded sweep is not polynomially equivalent to any triangular one-coordinate suspension of a four-dimensional Gao sweep. No determinant normalization is imposed on the suspension: polynomial equivalence to our sweep would force its Jacobian determinant to be a nonzero constant multiple of the square of the Gao sweep parameter, after which Gao's general sweep formula and unique factorization force the two possible base-sweep determinant orders. The proof uses the critical-value closure. For our sweep it is the irreducible threefold
+\[
+(z_1z_3-z_2^2)^3z_4^2-\lambda z_1^6=0,
+\qquad
+\lambda=\frac{41-38i}{576}\neq0,
+\]
+which is not ambient-polynomially equivalent to a cylinder. We formulate the theorem independently of the undefined phrase ``equivalent to a suspension'' in Gao's Open Problem 4.8. Under the source-target polynomial-equivalence interpretation and the triangular one-coordinate suspension class defined here, Open Problem 4.8 therefore has a negative answer.
+\end{abstract}
+
+\section{Context and statement of the result}
+
+Gao studies polynomial tangent sweeps associated with the mixed direction field
+\[
+\Delta=(1,w_1,w_1^2,w_2)^{\mathsf T}
+\]
+in dimension five. With potentials $\Gamma=(G_2,G_3,G_4)$ and
+\[
+H:=G_3-2w_1G_2,
+\]
+Gao writes the determinant pencil as
+\[
+\det\bigl(J(\Gamma)+\mu\widetilde P\bigr)
+   =D_0+\mu D_1+\mu^2D_2,
+\]
+where
+\begin{align*}
+D_2&=-\partial_3H,\\
+D_1&=(\partial_2H)(\partial_3G_4)
+     -(\partial_3H)(\partial_2G_4)
+     -\bigl((\partial_1G_2)(\partial_3G_3)
+     -(\partial_1G_3)(\partial_3G_2)\bigr),\\
+D_0&=\det J(G_2,G_3,G_4).
+\end{align*}
+The middle branch is normalized by
+\begin{equation}
+D_2=c\in\C^\times,
+\qquad
+X_1=-\frac{D_1}{2c},
+\qquad
+4cD_0=D_1^2.
+\label{eq:master}
+\end{equation}
+This is Gao's equation (12) in arXiv:2608.00222v1 \cite{Gao2026}. Gao's Theorem 4.6 proves that on the characteristic-invariance locus $\mathcal W G_2=0$ every solution collapses to a triangular suspension of a four-dimensional bottom-branch sweep, while Remark 4.7 records another explicit graph-coordinate collapse. Open Problem 4.8 asks whether every polynomial solution of \eqref{eq:master} is equivalent to a suspension of a four-dimensional sweep \cite{Gao2026}.
+
+Throughout, ``five-dimensional middle branch'' follows Gao's padded construction $F_0:\A^5\to\A^5$. The critical-value geometry below concerns its unpadded sweep $S:\A^4\to\A^4$; padding contributes one extra coordinate and one extra factor of $\gamma$ to the Jacobian determinant. Because the phrase ``equivalent to a suspension'' is not formally defined in the statement of Open Problem 4.8, we first state a precise theorem that does not depend on that terminology.
+
+\begin{definition}[Source-target polynomial equivalence]
+Two polynomial maps $S_1,S_2:\A^4\to\A^4$ are \emph{polynomially equivalent} if
+\[
+S_2=\Psi\circ S_1\circ\Phi
+\]
+for polynomial automorphisms $\Phi,\Psi\in\operatorname{Aut}_{\rm poly}(\A^4)$.
+\end{definition}
+
+\begin{definition}[Triangular one-coordinate suspension]
+Let $u=(\gamma_T,a,b)$ and let $v$ be a fourth source coordinate. A \emph{triangular one-coordinate suspension of a four-dimensional Gao sweep} is a polynomial map
+\[
+\Sigma(u,v)=\bigl(T(u),Q(u,v)\bigr):\A^4\to\A^4,
+\]
+where $T:\A^3\to\A^3$ is the unpadded sweep associated with an arbitrary four-dimensional Gao tangent-sweep datum and $T$ is independent of $v$. No Jacobian-determinant normalization and no determinant branch for $T$ are imposed in the definition.
+\end{definition}
+
+\begin{theorem}[Main theorem]\label{thm:main}
+There exists an exact polynomial solution of Gao's five-dimensional middle-branch equation \eqref{eq:master} whose associated unpadded sweep $S:\A^4\to\A^4$ is not polynomially equivalent to any triangular one-coordinate suspension of a four-dimensional Gao sweep.
+\end{theorem}
+
+\begin{corollary}[Relation to Gao's Open Problem 4.8]\label{cor:gao}
+If ``equivalent to a suspension of a four-dimensional sweep'' in Gao's Open Problem 4.8 is interpreted as source-target polynomial equivalence to the triangular one-coordinate suspension class above, then Open Problem 4.8 has a negative answer.
+\end{corollary}
+
+\begin{remark}[Scope of the theorem]\label{rem:scope}
+Theorem \ref{thm:main} excludes exactly the class defined above: triangular one-coordinate suspensions whose base is an arbitrary four-dimensional Gao sweep, under source-target polynomial equivalence.  It does not claim to classify every object that could informally be called a ``suspension.''  Corollary \ref{cor:gao} is therefore intentionally conditional on interpreting Gao's terminology by this precise class.
+\end{remark}
+
+\section{The exact middle-branch witness}
+
+Normalize $c=1$ and $\varphi=0$, and write
+\[
+x=w_1,\qquad y=w_2,\qquad t=w_3.
+\]
+Set
+\begin{equation}
+\boxed{
+G_2=yt^2,
+\qquad
+G_3=2xyt^2-t,
+\qquad
+G_4=\frac{4i}{3}y^3t^3.
+}
+\label{eq:witness}
+\end{equation}
+Then
+\[
+H=G_3-2xG_2=-t.
+\]
+This witness lies outside Gao's characteristic-invariance collapse locus. Indeed, for $c=1$ and $\varphi=0$ one has $\mathcal W=\partial_y$, while
+\[
+\mathcal W G_2=\partial_y(yt^2)=t^2\neq0.
+\]
+Thus Theorem 4.6 does not apply to the witness.
+
+\begin{proposition}\label{prop:master}
+The data \eqref{eq:witness} satisfy Gao's middle-branch conditions with $c=1$:
+\[
+D_2=1,
+\qquad
+D_1=4(1+i)y^2t^3,
+\qquad
+D_0=8iy^4t^6,
+\]
+and hence $4D_0=D_1^2$ identically.
+\end{proposition}
+
+\begin{proof}
+From $H=-t$ one has $D_2=-\partial_tH=1$. Since
+\[
+\partial_yH=0,
+\qquad
+\partial_tH=-1,
+\]
+Gao's displayed formula for $D_1$ reduces to
+\[
+D_1=\partial_yG_4
+-\bigl((\partial_xG_2)(\partial_tG_3)
+-(\partial_xG_3)(\partial_tG_2)\bigr).
+\]
+Now $\partial_xG_2=0$, $\partial_xG_3=2yt^2$, $\partial_tG_2=2yt$, and
+\[
+\partial_yG_4=4iy^2t^3.
+\]
+Therefore
+\[
+D_1=4iy^2t^3+4y^2t^3=4(1+i)y^2t^3.
+\]
+A direct $3\times3$ determinant gives
+\[
+D_0=\det J(G_2,G_3,G_4)=8iy^4t^6.
+\]
+Consequently
+\[
+D_1^2=16(1+i)^2y^4t^6=32iy^4t^6=4D_0.
+\]
+\end{proof}
+
+The middle-branch reconstruction gives
+\[
+X_1=-\frac{D_1}{2}=-2(1+i)y^2t^3
+\]
+and
+\begin{align}
+X_2&=G_2+xX_1
+=yt^2-2(1+i)xy^2t^3,\notag\\
+X_3&=G_3+x^2X_1
+=2xyt^2-t-2(1+i)x^2y^2t^3,\notag\\
+X_4&=G_4+yX_1
+=\left(-2-\frac{2i}{3}\right)y^3t^3.
+\label{eq:X}
+\end{align}
+For
+\[
+\Delta=(1,x,x^2,y)^{\mathsf T}
+\]
+define the unpadded sweep
+\[
+S(\gamma,x,y,t)=X(x,y,t)+\gamma\Delta(x,y).
+\]
+
+\begin{proposition}\label{prop:sweep}
+The sweep satisfies
+\[
+\det JS=\gamma^2.
+\]
+Moreover $X$ has generic rank three; for example
+\[
+\det\frac{\partial(X_1,X_2,X_3)}{\partial(x,y,t)}
+=(-4+12i)y^3t^6.
+\]
+Thus $\Crit(S)=\{\gamma=0\}$ and the critical-value closure has dimension three.
+\end{proposition}
+
+\begin{proof}
+Substitution of \eqref{eq:X} into the $4\times4$ Jacobian gives the polynomial identity $\det JS=\gamma^2$. The displayed $3\times3$ minor is nonzero, hence $\rank JX=3$ on a dense open subset. Since $\det JS=\gamma^2$, the set-theoretic critical locus is exactly $\{\gamma=0\}$; scheme-theoretically the determinant vanishes there with multiplicity two. Its image is $X(\A^3)$, whose closure has dimension three by generic rank three.
+\end{proof}
+
+\section{Elimination and the critical-value threefold}
+
+Let $(z_1,z_2,z_3,z_4)$ be target coordinates and set
+\[
+R=z_1z_3-z_2^2.
+\]
+Write
+\[
+\kappa=2(1+i),
+\qquad
+\rho=1+2i,
+\qquad
+ d=-2-\frac{2i}{3}.
+\]
+From \eqref{eq:X},
+\[
+z_1=-\kappa y^2t^3,
+\qquad
+z_4=d y^3t^3.
+\]
+The $x$-terms cancel in $R$:
+\begin{align*}
+R
+&=X_1X_3-X_2^2\\
+&=\rho y^2t^4.
+\end{align*}
+Therefore
+\begin{align*}
+R^3z_4^2
+&=\rho^3d^2y^{12}t^{18},\\
+z_1^6
+&=\kappa^6y^{12}t^{18}.
+\end{align*}
+Hence
+\begin{equation}
+R^3z_4^2=\lambda z_1^6,
+\qquad
+\lambda=\frac{\rho^3d^2}{\kappa^6}
+=\frac{41-38i}{576}\neq0.
+\label{eq:implicit}
+\end{equation}
+This is the promised elimination certificate; it requires no division by $y$ or $t$ and therefore holds on the entire parameter space.
+
+\begin{proposition}\label{prop:closure}
+The critical-value closure is exactly the irreducible threefold
+\[
+V=V(F)\subset\A^4,
+\qquad
+F=(z_1z_3-z_2^2)^3z_4^2-\lambda z_1^6.
+\]
+After a nonzero linear rescaling of $z_4$, one may equivalently take $\lambda=1$.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:implicit} shows that the image closure is contained in $V(F)$. It remains to prove irreducibility.
+
+The polynomial
+\[
+R=z_1z_3-z_2^2
+\]
+is irreducible in $\C[z_1,z_2,z_3]$: it is primitive and linear in $z_3$, with relatively prime coefficient $z_1$ and constant term $-z_2^2$. Moreover $\gcd(R,z_1)=1$, so the coefficients $R^3$ and $-z_1^6$ of $F=R^3z_4^2-z_1^6$ have no common nonunit factor. Thus $F$ is primitive as a polynomial in $z_4$ over the UFD $\C[z_1,z_2,z_3]$. Over its fraction field, reducibility would require
+\[
+\frac{\lambda z_1^6}{R^3}
+\]
+to be a square. Its valuation along the irreducible prime $R$ is $-3$, which is odd; hence it is not a square. Gauss' lemma gives irreducibility of $F$.
+
+By Proposition \ref{prop:sweep}, the image closure is irreducible of dimension three. The irreducible hypersurface $V(F)$ also has dimension three. An irreducible closed subset of an irreducible variety having the same dimension is the whole variety, so the critical-value closure equals $V(F)$.
+\end{proof}
+
+\section{The critical-value threefold is not a cylinder}
+
+Because nonzero target rescaling does not affect the argument, normalize $\lambda=1$ and write
+\[
+F=R^3z_4^2-z_1^6,
+\qquad
+R=z_1z_3-z_2^2.
+\]
+
+\begin{lemma}\label{lem:sing}
+The singular locus of $V$ is
+\[
+\Sing(V)=P_1\cup P_2,
+\]
+where
+\[
+P_1=\{z_1=z_2=0\},
+\qquad
+P_2=\{z_1=z_4=0\}.
+\]
+Their intersection is the line
+\[
+L=P_1\cap P_2=\{z_1=z_2=z_4=0\}.
+\]
+\end{lemma}
+
+\begin{proof}
+The partial derivatives are
+\begin{align*}
+F_{z_4}&=2R^3z_4,\\
+F_{z_3}&=3R^2z_1z_4^2,\\
+F_{z_2}&=-6R^2z_2z_4^2,\\
+F_{z_1}&=3R^2z_3z_4^2-6z_1^5.
+\end{align*}
+At a singular point $F_{z_4}=0$, hence either $R=0$ or $z_4=0$.
+
+If $R=0$, the equation $F=0$ gives $z_1=0$, and then $R=-z_2^2=0$, so $z_2=0$; this is $P_1$. Conversely every point of $P_1$ annihilates $F$ and all first derivatives.
+
+If $z_4=0$, the equation $F=0$ gives $z_1=0$, yielding $P_2$, and again every point of $P_2$ is singular. Thus the singular locus is exactly $P_1\cup P_2$.
+\end{proof}
+
+\begin{lemma}\label{lem:mult}
+For
+\[
+p_a=(0,0,a,0)\in L,
+\]
+one has
+\[
+\mult_{p_a}V=5\quad(a\neq0),
+\qquad
+\mult_0V=6.
+\]
+Thus the origin is the unique multiplicity-six point of $L$.
+\end{lemma}
+
+\begin{proof}
+At $p_a$ with $a\neq0$, use local coordinates with $z_3=a+u_3$. Then
+\[
+R=az_1+z_1u_3-z_2^2
+\]
+has order one, with initial term $az_1$. Hence $R^3z_4^2$ has order five and nonzero degree-five initial term $a^3z_1^3z_4^2$, whereas $z_1^6$ has order six. Therefore the local multiplicity is five.
+
+At the origin, $R$ has order two, so $R^3z_4^2$ has order eight, while $z_1^6$ has order six. Therefore $\mult_0V=6$.
+\end{proof}
+
+\begin{proposition}\label{prop:notcyl}
+The threefold $V$ is not ambient-polynomially equivalent to a cylinder $Y\times\A^1\subset\A^3\times\A^1$.
+\end{proposition}
+
+\begin{proof}
+Assume that a polynomial automorphism $\Psi$ of $\A^4$ sends $V$ onto a cylinder $Y\times\A^1$. Translation in the $\A^1$ coordinate defines an algebraic $\mathbb G_a$-action on $\A^4$ preserving the cylinder and having no global fixed point. Conjugating by $\Psi$ gives an algebraic $\mathbb G_a$-action on $\A^4$ preserving $V$ and likewise having no global fixed point.
+
+Every ambient polynomial automorphism $\Theta$ preserving $V$ satisfies $\Theta(\Sing(V))=\Sing(V)$, because regularity of the local ring is preserved under isomorphism. The planes $P_1$ and $P_2$ are the two irreducible components of $\Sing(V)$. An algebraic action of a connected algebraic group on a finite discrete set is trivial: each orbit is the connected image of the group and hence consists of one point. Since $\mathbb G_a$ is connected and the set of irreducible components $\{P_1,P_2\}$ is finite, each component is therefore preserved setwise. Therefore their intersection $L$ is preserved setwise.
+
+Local multiplicity is invariant under ambient polynomial automorphisms. By Lemma \ref{lem:mult}, the origin is the unique multiplicity-six point of $L$. Hence every element of the conjugated $\mathbb G_a$-action fixes the origin. This gives a global fixed point, contradicting the fixed-point-free translation action from which it was conjugated. Therefore no such ambient polynomial equivalence to a cylinder exists.
+\end{proof}
+
+\section{Excluding all triangular one-coordinate suspensions}
+
+The determinant restrictions needed below are consequences, not assumptions. For a four-dimensional tangent sweep, Gao's Lemma 4.1 gives for the padded map
+\[
+F_0(x,\gamma_T,a,b)=\bigl(\gamma_T x,\,T(\gamma_T,a,b)\bigr)
+\]
+the identity
+\[
+\det J(F_0)=\gamma_T^2L+\gamma_T^3M.
+\]
+Here the exact padded/unpadded relation is immediate from the Jacobian: $T$ is independent of $x$, so expansion along the $x$-column gives
+\[
+\det J(F_0)=\gamma_T\,\det JT.
+\]
+Consequently the corresponding unpadded sweep $T:\A^3\to\A^3$ satisfies
+\begin{equation}
+\det JT=\gamma_T L+\gamma_T^2M
+=\gamma_T(L+\gamma_T M),
+\label{eq:gao4det}
+\end{equation}
+where $L,M$ are polynomials in the two non-$\gamma_T$ base parameters.
+
+\begin{lemma}[Polynomial equivalence forces normalization]\label{lem:normalize}
+Let $S$ be the sweep of Proposition \ref{prop:sweep}, with source coordinate $\gamma_S$ and
+\[
+\det JS=\gamma_S^2.
+\]
+Let
+\[
+\Sigma(u,v)=\bigl(T(u),Q(u,v)\bigr),
+\qquad u=(\gamma_T,a,b),
+\]
+be any triangular one-coordinate suspension of a four-dimensional Gao sweep. If $S$ and $\Sigma$ are polynomially equivalent, then
+\[
+\det J\Sigma=B\gamma_T^2
+\]
+for some $B\in\C^\times$.
+\end{lemma}
+
+\begin{proof}
+By symmetry of polynomial equivalence, write
+\[
+S=\Psi\circ\Sigma\circ\Phi
+\]
+for polynomial automorphisms $\Phi,\Psi$ of $\A^4$. Polynomial automorphisms have nonzero constant Jacobian determinant, so the chain rule and $\det JS=\gamma_S^2$ imply
+\[
+\det J\Sigma=Cp^2,
+\qquad
+p:=\gamma_S\circ\Phi^{-1},
+\qquad C\in\C^\times.
+\]
+The polynomial $p$ is a coordinate polynomial, hence irreducible.  Indeed the automorphism $\Phi^{-1}$ identifies $\C[p,p_2,p_3,p_4]$ with the full polynomial ring for suitable companion coordinates; equivalently, the quotient by $(p)$ is isomorphic to a polynomial ring in three variables and is therefore a domain.  Thus $(p)$ is prime, in particular $p$ is irreducible.
+
+Because $\Sigma=(T,Q)$ is triangular and $T$ is independent of $v$,
+\[
+\det J\Sigma=(\partial_vQ)\det JT.
+\]
+By \eqref{eq:gao4det}, $\gamma_T$ divides $\det JT$, hence
+\[
+\gamma_T\mid\det J\Sigma=Cp^2.
+\]
+The ring $\C[\gamma_T,a,b,v]$ is a UFD and the coordinate $\gamma_T$ is irreducible, hence prime. Therefore $\gamma_T\mid p^2$ implies $\gamma_T\mid p$. Since $p$ and $\gamma_T$ are both irreducible, they are associates:
+\[
+p=A\gamma_T,
+\qquad A\in\C^\times.
+\]
+Consequently
+\[
+\det J\Sigma=CA^2\gamma_T^2,
+\]
+which is the asserted normalization.
+\end{proof}
+
+\begin{lemma}[Triangular suspension exhaustiveness]\label{lem:det}
+Let
+\[
+\Sigma(u,v)=\bigl(T(u),Q(u,v)\bigr),
+\qquad u=(\gamma_T,a,b),
+\]
+be a triangular one-coordinate suspension satisfying
+\[
+\det J\Sigma=B\gamma_T^2,
+\qquad B\in\C^\times.
+\]
+Write the general four-dimensional Gao sweep determinant as in \eqref{eq:gao4det}. Then exactly one of the following two cases holds for some $A\in\C^\times$:
+\begin{enumerate}[label=(\Alph*)]
+\item $M=0$, $L=A$, hence
+\[
+\det JT=A\gamma_T,
+\qquad
+Q=\frac BA\,\gamma_T v+h(u);
+\]
+\item $L=0$, $M=A$, hence
+\[
+\det JT=A\gamma_T^2,
+\qquad
+Q=\frac BA\,v+h(u).
+\]
+\end{enumerate}
+In particular these two determinant modes are exhaustive; they are not part of the definition.
+\end{lemma}
+
+\begin{proof}
+Because $T$ is independent of $v$, the Jacobian matrix is block triangular:
+\[
+J\Sigma=
+\begin{pmatrix}
+JT&0\\
+\partial_uQ&\partial_vQ
+\end{pmatrix},
+\]
+so
+\[
+\det J\Sigma=(\partial_vQ)\det JT.
+\]
+Using \eqref{eq:gao4det} and cancelling the nonzero factor $\gamma_T$ in the integral domain $\C[\gamma_T,a,b,v]$ gives
+\begin{equation}
+(\partial_vQ)(L+\gamma_T M)=B\gamma_T.
+\label{eq:ufd}
+\end{equation}
+The polynomial ring is a UFD and $\gamma_T$ is irreducible. Hence the nonzero factor $L+\gamma_T M$ divides $B\gamma_T$. Since $B$ is a unit, every nonunit irreducible factor of $L+\gamma_T M$ must be associated to $\gamma_T$. Moreover $L+\gamma_T M$ has degree at most one in $\gamma_T$. Therefore it is either a unit or an associate of $\gamma_T$.
+
+If it is a unit, units in $\C[\gamma_T,a,b,v]$ are nonzero constants, so $M=0$ and $L=A\in\C^\times$. Equation \eqref{eq:ufd} gives $\partial_vQ=(B/A)\gamma_T$, and integration in $v$ yields
+\[
+Q=(B/A)\gamma_T v+h(u).
+\]
+If $L+\gamma_T M$ is associated to $\gamma_T$, then $L=0$ and $M=A\in\C^\times$. Equation \eqref{eq:ufd} gives $\partial_vQ=B/A$, hence
+\[
+Q=(B/A)v+h(u).
+\]
+The two alternatives are mutually exclusive and exhaustive.
+\end{proof}
+
+\begin{lemma}[Critical-value invariant]\label{lem:equiv}
+If $S_2=\Psi\circ S_1\circ\Phi$ with polynomial automorphisms $\Phi,\Psi$ of $\A^4$, then
+\[
+\overline{\CV(S_2)}=\Psi\bigl(\overline{\CV(S_1)}\bigr).
+\]
+In particular the dimension of the critical-value closure and the property of being ambient-polynomially equivalent to a cylinder are invariants of source-target polynomial equivalence.
+\end{lemma}
+
+\begin{proof}
+Polynomial automorphisms have everywhere invertible Jacobian matrices. By the chain rule,
+\[
+\Crit(S_2)=\Phi^{-1}(\Crit(S_1)).
+\]
+Applying $S_2$ gives
+\[
+\CV(S_2)=\Psi(\CV(S_1)),
+\]
+and taking Zariski closures yields the formula. Dimension is preserved by $\Psi$, and cylinder-equivalence is preserved by composition with ambient polynomial automorphisms.
+\end{proof}
+
+\begin{proposition}\label{prop:exclude}
+The sweep $S$ of Proposition \ref{prop:sweep} is not polynomially equivalent to any triangular one-coordinate suspension of a four-dimensional Gao sweep.
+\end{proposition}
+
+\begin{proof}
+Suppose for contradiction that $S$ is polynomially equivalent to a triangular one-coordinate suspension $\Sigma=(T,Q)$. Lemma \ref{lem:normalize} forces
+\[
+\det J\Sigma=B\gamma_T^2,
+\qquad B\in\C^\times.
+\]
+Lemma \ref{lem:det} then forces its determinant structure into exactly one of cases (A) or (B).
+
+In case (A),
+\[
+Q=\alpha\gamma_T v+h(u),\qquad \alpha\neq0.
+\]
+The set-theoretic critical locus is $\gamma_T=0$. On that locus the $v$-dependence disappears from $Q$, so the critical-value set is parameterized by the two remaining base parameters. Hence
+\[
+\dim\overline{\CV(\Sigma)}\le2.
+\]
+Our sweep has a three-dimensional critical-value closure by Proposition \ref{prop:sweep}. Lemma \ref{lem:equiv} excludes polynomial equivalence.
+
+In case (B),
+\[
+Q=\alpha v+h(u),\qquad \alpha\neq0.
+\]
+On the set-theoretic critical locus $\gamma_T=0$, the coordinate $v$ is free and the last target coordinate ranges over all of $\A^1$ for every base critical value. Thus
+\[
+\overline{\CV(\Sigma)}
+=
+\overline{\CV(T)}\times\A^1,
+\]
+a cylinder. Proposition \ref{prop:notcyl} and Lemma \ref{lem:equiv} again exclude polynomial equivalence.
+
+Lemmas \ref{lem:normalize} and \ref{lem:det} prove that any triangular one-coordinate suspension polynomially equivalent to $S$ would be normalized automatically and would fall into exactly one of these two cases. Both cases are impossible. Hence no triangular one-coordinate suspension of a four-dimensional Gao sweep is polynomially equivalent to $S$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:main}]
+Proposition \ref{prop:master} gives an exact polynomial middle-branch solution. Proposition \ref{prop:exclude} proves that its associated sweep is not polynomially equivalent to any triangular one-coordinate suspension of a four-dimensional Gao sweep. This is precisely the assertion.
+\end{proof}
+
+\begin{proof}[Proof of Corollary \ref{cor:gao}]
+Under the stated interpretation of Gao's phrase ``equivalent to a suspension of a four-dimensional sweep,'' Theorem \ref{thm:main} supplies the polynomial solution whose existence is asked for in Open Problem 4.8. Hence the conjectured rigidity fails.
+\end{proof}
+
+\section{Scope and verification}
+
+The main theorem is intentionally precise about the word ``suspension.''  As emphasized in Remark \ref{rem:scope}, it excludes the formally defined triangular one-coordinate Gao-suspension class and does not assert a classification of every possible informal use of that word. Definition 2 imposes only the natural triangular one-coordinate form with a four-dimensional Gao base sweep; it imposes no determinant normalization. Lemma \ref{lem:normalize} proves that polynomial equivalence to our square-Jacobian sweep would itself force $\det J\Sigma\sim\gamma_T^2$. Lemma \ref{lem:det}, using Gao's general four-dimensional sweep formula (Lemma 4.1), then proves that the two possibilities $\det JT\sim\gamma_T$ and $\det JT\sim\gamma_T^2$ are exhaustive. Gao's Theorem 4.6 supplies a concrete instance of case (A). Remark 4.7 motivates the graph-coordinate type of collapse but is not used as a formal classification theorem for case (B).
+
+All witness identities in Propositions \ref{prop:master} and \ref{prop:sweep}, the rank-three minor, and the implicit relation \eqref{eq:implicit} have been checked in exact symbolic arithmetic. The accompanying verification script is intended as a reproducibility aid; the proof above does not depend on randomized computation.
+
+\begin{thebibliography}{9}
+\bibitem{Gao2026}
+S. Gao,
+\emph{Counterexamples to the Jacobian conjecture in dimensions greater than two},
+arXiv:2608.00222v1 [math.AG], 31 July 2026.
+Relevant items: Lemma 4.1, equation (12), Theorem 4.6, Remark 4.7, Open Problem 4.8.
+\end{thebibliography}
+
+\end{document}

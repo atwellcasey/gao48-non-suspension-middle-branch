@@ -1,0 +1,21 @@
+SOURCE AUDIT - Gao middle-branch paper
+Version: v1.3
+Date/time: 2026-08-18 21:40 EDT
+
+PRIMARY SOURCE
+Shuhong Gao, "Counterexamples to the Jacobian conjecture in dimensions greater than two", arXiv:2608.00222v1 [math.AG], 31 July 2026.
+
+DIRECT CHECKS
+1. Lemma 4.1: PASS. Gao defines the padded sweep F0(x,gamma,w)=(gamma x, X(w)+gamma Delta(w)) and proves
+   det J(F0)=gamma det(Delta,J(X)+gamma J(Delta)).
+   In n=4 this is gamma^2 L+gamma^3 M.
+2. Padded/unpadded relation: PASS. For T(gamma,w)=X(w)+gamma Delta(w), expansion along the x-column of J(F0) gives det J(F0)=gamma det JT. Therefore det JT=gamma L+gamma^2 M.
+3. Mixed five-dimensional middle branch: PASS. Gao equation (12) is 4cD0=D1^2 with D2=c!=0 and X1=-D1/(2c).
+4. Theorem 4.6: PASS. On W G2=0 Gao obtains a triangular suspension with a four-dimensional base sweep.
+5. Open Problem 4.8: PASS. Gao asks whether the master equation has a polynomial solution not equivalent to a suspension of a four-dimensional sweep and conjectures no. The term 'equivalent to a suspension' is not formally defined there.
+
+MANUSCRIPT DEPENDENCE
+The publishable theorem uses Gao only for the displayed D-coefficients/middle-branch reconstruction and Lemma 4.1's universal sweep determinant formula. It defines its own source-target polynomial equivalence and triangular one-coordinate suspension class.
+
+SCOPE
+The main theorem is unconditional for the class defined in the manuscript. The corollary to Gao Open Problem 4.8 remains conditional on whether Gao's informal terminology is intended to match that class.
