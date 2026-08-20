@@ -8,3 +8,8 @@ source/build/PDF audits, citation metadata, and integrity hashes.
 
 No theorem, witness, manuscript source, or verifier has been changed by the publisher-package
 cleanup associated with this archival release.
+
+Archival record
+Zenodo DOI: 10.5281/zenodo.22019392
+
+Zenodo record: https://zenodo.org/records/22019392
